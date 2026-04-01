@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELALBECOL | Moda Urbana</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1 class="logo">
+    <span class="logo-box">
+      <span class="blanco">Elalbe</span><span class="negro">col</span>
+    </span>
+  </h1>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+  <h2></h2>
+  <a href="#productos" class="btn-comprar-ahora">Comprar ahora</a>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos" class="productos">
+  <h2>Productos</h2>
+
+  <div class="categorias">
+    <button onclick="mostrarTodos()">Todos</button>
+    <button onclick="filtrar('hombre')">Hombre</button>
+    <button onclick="filtrar('mujer')">Mujer</button>
+    <button onclick="filtrar('gorras')">Gorras</button>
+    <button onclick="filtrar('hoddies')">Hoddies</button>
+  </div>
+
+  <div class="productos-grid" id="lista-productos"></div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="nosotros">
+  <h2>Quienes somos</h2>
+
+  <p class="texto-nosotros">
+   De lo urbano al tropical, <strong>Elalbecol</strong> combina ritmos, colores y libertad. Cada prenda cuenta una historia,
+   la tuya.<br>
+
+  Nacimos en las calles de Barranquilla, donde el calor se siente en la música, 
+  en los colores de la ciudad y en la energía de su gente. 
+  Nuestro estilo es versátil: tan urbano como atrevido, tan tropical como auténtico.<br>
+  Aquí no hay reglas, solo expresión. Cada prenda, cada detalle, es una pieza de nuestra identidad.
+  </p>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contacto">
+  <h2>Contacto</h2>
+  <p>Habla con nosotros directamente</p>
+
+  <a href="https://wa.me/573043099414" class="btn-comprar-ahora">WhatsApp</a>
+
+  <p class="texto-contacto">siguenos a traves de</p>
+
+  <a href="https://www.instagram.com/elalbe_col" class="btn-comprar-ahora">Instagram</a>
+</section>
+
+<footer class="footer">
+  <p>© 2026 ELALBECOL — Todos los derechos reservados</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
