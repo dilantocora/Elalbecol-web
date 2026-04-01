@@ -392,6 +392,7 @@ a:focus, button:focus {
 
 /* ADAPTACIÓN MÓVIL */
 @media (max-width: 768px) {
+}
   .slider-dots .dot {
     width: 6px;
     height: 6px;
@@ -401,4 +402,3 @@ a:focus, button:focus {
     max-width: 100%;
     height: auto;
   }
-}
