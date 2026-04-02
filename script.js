@@ -4,6 +4,7 @@
 let productosData = [];
 const contenedor = document.getElementById("lista-productos");
 
+
 // ===============================
 // CARGAR PRODUCTOS DESDE JSON
 // ===============================
@@ -13,7 +14,6 @@ fetch("productos.json")
     productosData = data;
     mostrarProductos(productosData);
 
-    // revisar si la URL tiene producto
     setTimeout(irAProductoDesdeURL, 300);
   })
   .catch(error => console.log("Error cargando productos:", error));
@@ -23,18 +23,16 @@ fetch("productos.json")
 // MOSTRAR PRODUCTOS
 // ===============================
 function mostrarProductos(lista) {
+
   contenedor.innerHTML = "";
 
   lista.forEach(producto => {
 
     const card = document.createElement("div");
 
-    // ID único para URL
-    card.id = producto.nombre
-      .toLowerCase()
-      .replace(/\s+/g, "-");
+    /* ✅ USAMOS ID NUMÉRICO (YA NO NOMBRE) */
+    card.id = "producto-" + producto.id;
 
-    // clase agotado
     card.className =
       producto.estado === "agotado"
         ? "producto agotado"
@@ -44,8 +42,7 @@ function mostrarProductos(lista) {
     // IMÁGENES
     // ===============================
     const imagenes = (producto.imagenes || [])
-      .filter(img => img && img.trim() !== "")
-      .slice(0, 3);
+      .filter(img => img && img.trim() !== "");
 
     let indexImagen = 0;
 
@@ -105,7 +102,8 @@ function mostrarProductos(lista) {
         const dot = document.createElement("span");
         dot.className = i === 0 ? "dot active" : "dot";
 
-        dot.addEventListener("click", () => {
+        dot.addEventListener("click", (e) => {
+          e.stopPropagation();
           indexImagen = i;
           cambiarImagen();
         });
@@ -125,17 +123,27 @@ function mostrarProductos(lista) {
     }
 
     function cambiarImagen() {
+      imgElement.style.transition = "opacity .35s ease";
       imgElement.style.opacity = "0";
 
       setTimeout(() => {
         imgElement.src = imagenes[indexImagen];
         imgElement.style.opacity = "1";
         actualizarDots();
-      }, 120);
+      }, 180);
     }
 
     // ===============================
-    // CLICK (MÓVIL)
+    // CLICK TARJETA → ACTUALIZA URL
+    // ===============================
+    card.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("btn-comprar-ahora")) {
+        history.replaceState(null, "", "#producto-" + producto.id);
+      }
+    });
+
+    // ===============================
+    // CLICK IMAGEN (MÓVIL)
     // ===============================
     if (imagenes.length > 1) {
       imgElement.addEventListener("click", () => {
@@ -145,22 +153,29 @@ function mostrarProductos(lista) {
     }
 
     // ===============================
-    // HOVER PC
+    // HOVER PC (FLUIDO)
     // ===============================
+    let hoverInterval;
+
     if (imagenes.length > 1) {
       card.addEventListener("mouseenter", () => {
-        indexImagen = (indexImagen + 1) % imagenes.length;
-        cambiarImagen();
+
+        hoverInterval = setInterval(() => {
+          indexImagen = (indexImagen + 1) % imagenes.length;
+          cambiarImagen();
+        }, 1400);
+
       });
 
       card.addEventListener("mouseleave", () => {
+        clearInterval(hoverInterval);
         indexImagen = 0;
         cambiarImagen();
       });
     }
 
     // ===============================
-    // SWIPE TIPO INSTAGRAM (MÓVIL)
+    // SWIPE INSTAGRAM (MÓVIL)
     // ===============================
     let startX = 0;
 
@@ -169,6 +184,7 @@ function mostrarProductos(lista) {
     });
 
     imgElement.addEventListener("touchend", e => {
+
       const endX = e.changedTouches[0].clientX;
       const diff = startX - endX;
 
@@ -184,24 +200,26 @@ function mostrarProductos(lista) {
     });
 
     // ===============================
-    // WHATSAPP + LINK DIRECTO
+    // WHATSAPP + LINK EXACTO
     // ===============================
     if (producto.estado !== "agotado") {
+
       const btn = card.querySelector(".btn-comprar-ahora");
 
       if (btn) {
         btn.addEventListener("click", (e) => {
+
           e.preventDefault();
 
-          const numero = producto.whatsapp || "573043099414";
+          const numero = producto.whatsapp || "573204883897";
 
           const productoURL =
             window.location.origin +
-            "/#" +
-            card.id;
+            "/#producto-" +
+            producto.id;
 
           const mensaje = encodeURIComponent(
-            `Hola! 👋 estoy interesado en este producto:\n\n${producto.nombre}\n${productoURL}`
+            `Hola! me interesa este producto:\n\n${producto.nombre}\n${productoURL}`
           );
 
           window.open(
@@ -211,19 +229,23 @@ function mostrarProductos(lista) {
         });
       }
     }
+
   });
 }
+
 
 // ===============================
 // IR A PRODUCTO DESDE URL
 // ===============================
 function irAProductoDesdeURL() {
+
   const hash = window.location.hash.replace("#", "");
   if (!hash) return;
 
   const producto = document.getElementById(hash);
 
   if (producto) {
+
     producto.scrollIntoView({
       behavior: "smooth",
       block: "center"
@@ -236,6 +258,13 @@ function irAProductoDesdeURL() {
     }, 2500);
   }
 }
+
+
+// ===============================
+// DETECTAR CAMBIO DE HASH
+// ===============================
+window.addEventListener("hashchange", irAProductoDesdeURL);
+
 
 // ===============================
 // FILTROS

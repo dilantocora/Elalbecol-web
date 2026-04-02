@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "001",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -13,7 +13,7 @@
     ]
   },
   {
-    "id": 1,
+    "id": "002",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -25,7 +25,7 @@
     ]
   },
   {
-    "id": 1,
+    "id": "003",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -39,7 +39,7 @@
   },
 
   {
-"id": 1,
+"id": "004",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000 - $45.000",
     "categoria": "hombre",
@@ -54,7 +54,7 @@
   },
     
   {
-"id": 1,
+"id": "005",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -67,7 +67,7 @@
     ]
   },
    {
-    "id": 1,
+    "id": "006",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -81,7 +81,7 @@
     ]
   },
    {
-    "id": 1,
+    "id": "007",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -94,7 +94,7 @@
     ]
   },
   {
-  "id": 1,
+  "id": "008",
     "nombre": "burda premiun 270gr",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -109,7 +109,7 @@
     ]
   },
    {
-  "id": 1,
+  "id": "009",
     "nombre": "burda premiun 270gr",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -124,7 +124,7 @@
     ]
   },
       {
-"id": 1,
+"id": "010",
     "nombre": "camisa regular fit, tela pesada",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -137,7 +137,7 @@
     ]
   },
       {
-"id": 1,
+"id": "011",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -150,7 +150,7 @@
     ]
   },
    {
-"id": 1,
+"id": "012",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -163,7 +163,7 @@
     ]
   },
      {
-"id": 1,
+"id": "013",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -176,7 +176,7 @@
     ]
   },
     {
-"id": 1,
+"id": "014",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -189,7 +189,7 @@
     ]
   },
     {
-"id": 1,
+"id": "015",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -202,7 +202,7 @@
     ]
   },
       {
-"id": 1,
+"id": "016",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -215,7 +215,7 @@
     ]
   },
       {
-"id": 1,
+"id": "017",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -228,7 +228,7 @@
     ]
   },
       {
-"id": 1,
+"id": "018",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -241,7 +241,7 @@
     ]
   },
       {
-"id": 1,
+"id": "019",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$75.000",
     "categoria": "hombre",
@@ -255,7 +255,7 @@
   },
   
    {
-    "id": 1,
+    "id": "020",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$65.000",
     "categoria": "mujer",
@@ -268,7 +268,7 @@
     ]
   },
    {
-    "id": 1,
+    "id": "021",
     "nombre": "dama corta, tela pesada 220 gm",
     "precio": "$45.000",
     "categoria": "mujer",
@@ -280,7 +280,7 @@
     ]
   },
    {
-    "id": 1,
+    "id": "022",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$65.000 - $75.000",
     "categoria": "mujer",
@@ -294,7 +294,7 @@
     ]
   },
    {
-    "id": 1,
+    "id": "023",
     "nombre": "regular fit, tela pesada 220 gm",
     "precio": "$65.000",
     "categoria": "mujer",
@@ -308,7 +308,7 @@
     ]
   },
    {
-    "id": 1,
+    "id": "024",
     "nombre": "dama corta, tela pesada 220 gm",
     "precio": "$45.000",
     "categoria": "mujer",
@@ -321,7 +321,7 @@
     ]
   },
    {
-    "id": 1,
+    "id": "025",
     "nombre": "dama corta, tela pesada 220 gm",
     "precio": "$45.000",
     "categoria": "mujer",
@@ -335,7 +335,7 @@
     ]
   },
    {
-    "id": 1,
+    "id": "026",
     "nombre": "dama corta, tela pesada 220 gm",
     "precio": "$45.000",
     "categoria": "mujer",
@@ -347,7 +347,7 @@
     ]
   },
    {
-    "id": 1,
+    "id": "027",
     "nombre": "dama corta, tela pesada 220 gm",
     "precio": "$45.000",
     "categoria": "mujer",
@@ -359,7 +359,7 @@
     ]
   },
     {
-"id": 1,
+"id": "028",
     "nombre": "gorra urbana",
     "precio": "$55.000",
     "categoria": "gorras",
@@ -373,7 +373,7 @@
     ]
   },
   {
-"id": 1,
+"id": "029",
     "nombre": "gorra urbana",
     "precio": "$55.000",
     "categoria": "gorras",
@@ -387,7 +387,7 @@
     ]
   },
     {
-"id": 1,
+"id": "030",
     "nombre": "gorra urbana",
     "precio": "$55.000",
     "categoria": "gorras",
@@ -403,7 +403,7 @@
 
 
     {
-"id": 1,
+"id": "031",
     "nombre": "gorra urbana",
     "precio": "$55.000",
     "categoria": "gorras",
@@ -416,7 +416,7 @@
     ]
   },
     {
-"id": 1,
+"id": "032",
     "nombre": "gorra urbana",
     "precio": "$55.000",
     "categoria": "gorras",
@@ -431,7 +431,7 @@
   },
 
    {
-"id": 1,
+"id": "033",
     "nombre": "gorra urbana",
     "precio": "$55.000",
     "categoria": "gorras",
@@ -443,7 +443,7 @@
     ]
   },
     {
-"id": 1,
+"id": "034",
     "nombre": "gorra urbana",
     "precio": "$55.000",
     "categoria": "gorras",
@@ -455,7 +455,7 @@
     ]
   },
   {
-"id": 1,
+"id": "035",
     "nombre": "gorra urbana",
     "precio": "$55.000",
     "categoria": "gorras",
@@ -471,7 +471,7 @@
 
 
     {
-"id": 1,
+"id": "036",
     "nombre": "hoddie",
     "precio": "$100.000",
     "categoria": "hoddies",
@@ -485,7 +485,7 @@
     ]
   },
       {
-"id": 1,
+"id": "037",
     "nombre": "hoddie",
     "precio": "$100.000",
     "categoria": "hoddies",
@@ -498,7 +498,7 @@
     ]
   },
     {
-"id": 1,
+"id": "038",
     "nombre": "hoddie",
     "precio": "$100.000",
     "categoria": "hoddies",
