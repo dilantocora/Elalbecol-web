@@ -12,8 +12,12 @@ fetch("productos.json")
   .then(data => {
     productosData = data;
     mostrarProductos(productosData);
+
+    // revisar si la URL tiene producto
+    setTimeout(irAProductoDesdeURL, 300);
   })
   .catch(error => console.log("Error cargando productos:", error));
+
 
 // ===============================
 // MOSTRAR PRODUCTOS
@@ -22,16 +26,22 @@ function mostrarProductos(lista) {
   contenedor.innerHTML = "";
 
   lista.forEach(producto => {
+
     const card = document.createElement("div");
 
-    // clase automática agotado
+    // ID único para URL
+    card.id = producto.nombre
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+
+    // clase agotado
     card.className =
       producto.estado === "agotado"
         ? "producto agotado"
         : "producto";
 
     // ===============================
-    // IMÁGENES (OPCIONAL MAX 3)
+    // IMÁGENES
     // ===============================
     const imagenes = (producto.imagenes || [])
       .filter(img => img && img.trim() !== "")
@@ -45,7 +55,7 @@ function mostrarProductos(lista) {
         : "/imagenes/placeholder.jpg";
 
     // ===============================
-    // BOTÓN SEGÚN ESTADO
+    // BOTÓN
     // ===============================
     const botonHTML =
       producto.estado === "agotado"
@@ -53,7 +63,7 @@ function mostrarProductos(lista) {
         : `<a href="#" class="btn-comprar-ahora">Comprar</a>`;
 
     // ===============================
-    // ETIQUETA OPCIONAL
+    // ETIQUETA
     // ===============================
     let etiquetaHTML = "";
     if (producto.etiqueta) {
@@ -68,9 +78,11 @@ function mostrarProductos(lista) {
     // ===============================
     card.innerHTML = `
       ${etiquetaHTML}
-      <img class="producto-img"
-           src="${imagenInicial}"
-           alt="${producto.nombre}">
+      <div class="img-wrapper">
+        <img class="producto-img"
+             src="${imagenInicial}"
+             alt="${producto.nombre}">
+      </div>
       <h3>${producto.nombre}</h3>
       <p>${producto.precio}</p>
       ${botonHTML}
@@ -78,27 +90,26 @@ function mostrarProductos(lista) {
 
     contenedor.appendChild(card);
 
-    // ===============================
-    // SLIDER IMÁGENES TIPO INSTAGRAM
-    // ===============================
     const imgElement = card.querySelector(".producto-img");
-    if (!imgElement) return;
 
+    // ===============================
+    // DOTS INSTAGRAM
+    // ===============================
     let dotsContainer = null;
 
     if (imagenes.length > 1) {
-      // crear puntitos
       dotsContainer = document.createElement("div");
       dotsContainer.className = "slider-dots";
 
       imagenes.forEach((_, i) => {
         const dot = document.createElement("span");
         dot.className = i === 0 ? "dot active" : "dot";
+
         dot.addEventListener("click", () => {
           indexImagen = i;
-          imgElement.src = imagenes[indexImagen];
-          actualizarDots();
+          cambiarImagen();
         });
+
         dotsContainer.appendChild(dot);
       });
 
@@ -107,45 +118,92 @@ function mostrarProductos(lista) {
 
     function actualizarDots() {
       if (!dotsContainer) return;
+
       Array.from(dotsContainer.children).forEach((dot, i) => {
         dot.classList.toggle("active", i === indexImagen);
       });
     }
 
-    if (imagenes.length > 1) {
-      // hover PC
-      card.addEventListener("mouseenter", () => {
-        indexImagen = (indexImagen + 1) % imagenes.length;
+    function cambiarImagen() {
+      imgElement.style.opacity = "0";
+
+      setTimeout(() => {
         imgElement.src = imagenes[indexImagen];
+        imgElement.style.opacity = "1";
         actualizarDots();
-      });
+      }, 120);
+    }
 
-      card.addEventListener("mouseleave", () => {
-        indexImagen = 0;
-        imgElement.src = imagenes[0];
-        actualizarDots();
-      });
-
-      // click móvil
+    // ===============================
+    // CLICK (MÓVIL)
+    // ===============================
+    if (imagenes.length > 1) {
       imgElement.addEventListener("click", () => {
         indexImagen = (indexImagen + 1) % imagenes.length;
-        imgElement.src = imagenes[indexImagen];
-        actualizarDots();
+        cambiarImagen();
       });
     }
 
     // ===============================
-    // WHATSAPP
+    // HOVER PC
+    // ===============================
+    if (imagenes.length > 1) {
+      card.addEventListener("mouseenter", () => {
+        indexImagen = (indexImagen + 1) % imagenes.length;
+        cambiarImagen();
+      });
+
+      card.addEventListener("mouseleave", () => {
+        indexImagen = 0;
+        cambiarImagen();
+      });
+    }
+
+    // ===============================
+    // SWIPE TIPO INSTAGRAM (MÓVIL)
+    // ===============================
+    let startX = 0;
+
+    imgElement.addEventListener("touchstart", e => {
+      startX = e.touches[0].clientX;
+    });
+
+    imgElement.addEventListener("touchend", e => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          indexImagen = (indexImagen + 1) % imagenes.length;
+        } else {
+          indexImagen =
+            (indexImagen - 1 + imagenes.length) % imagenes.length;
+        }
+        cambiarImagen();
+      }
+    });
+
+    // ===============================
+    // WHATSAPP + LINK DIRECTO
     // ===============================
     if (producto.estado !== "agotado") {
       const btn = card.querySelector(".btn-comprar-ahora");
+
       if (btn) {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
+
           const numero = producto.whatsapp || "573043099414";
+
+          const productoURL =
+            window.location.origin +
+            "/#" +
+            card.id;
+
           const mensaje = encodeURIComponent(
-            `Hola! estoy interesado en este producto: ${producto.nombre}`
+            `Hola! 👋 estoy interesado en este producto:\n\n${producto.nombre}\n${productoURL}`
           );
+
           window.open(
             `https://wa.me/${numero}?text=${mensaje}`,
             "_blank"
@@ -157,18 +215,38 @@ function mostrarProductos(lista) {
 }
 
 // ===============================
-// FILTRAR POR CATEGORIA
+// IR A PRODUCTO DESDE URL
+// ===============================
+function irAProductoDesdeURL() {
+  const hash = window.location.hash.replace("#", "");
+  if (!hash) return;
+
+  const producto = document.getElementById(hash);
+
+  if (producto) {
+    producto.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+    producto.classList.add("producto-highlight");
+
+    setTimeout(() => {
+      producto.classList.remove("producto-highlight");
+    }, 2500);
+  }
+}
+
+// ===============================
+// FILTROS
 // ===============================
 function filtrar(categoria) {
-  const filtrados = productosData.filter(producto =>
-    producto.categoria === categoria
+  const filtrados = productosData.filter(
+    producto => producto.categoria === categoria
   );
   mostrarProductos(filtrados);
 }
 
-// ===============================
-// MOSTRAR TODOS
-// ===============================
 function mostrarTodos() {
   mostrarProductos(productosData);
 }
