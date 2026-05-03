@@ -3,11 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELALBECOL | Moda Urbana</title>
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="imagenes/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="imagenes/apple-touch-icon.png">
+
+ 
+  <title>Elalbecol | Moda Urbana y Tropical — Barranquilla</title>
+  <meta name="description" content="Ropa urbana y tropical hecha para Barranquilla. Camisas, gorras y hoodies con identidad propia. Envíos a todo Colombia.">
+  <meta name="keywords" content="ropa urbana barranquilla, camisas colombia, moda tropical, elalbecol, gorras, hoodies">
+  <meta name="author" content="Elalbecol">
+  <link rel="canonical" href="https://elalbecol.netlify.app/">
+
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://elalbecol.netlify.app/">
+  <meta property="og:title" content="Elalbecol | Moda Urbana y Tropical">
+  <meta property="og:description" content="De lo urbano al tropical. Ropa con identidad, nacida en Barranquilla.">
+  <meta property="og:image" content="https://elalbecol.netlify.app/imagenes/fondoalbe.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_CO">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Elalbecol | Moda Urbana y Tropical">
+  <meta name="twitter:description" content="De lo urbano al tropical. Ropa con identidad, nacida en Barranquilla.">
+  <meta name="twitter:image" content="https://elalbecol.netlify.app/imagenes/fondoalbe.png">
+
   <link rel="stylesheet" href="style.css">
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9CGC9F19G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L9CGC9F19G');
+  </script>
 </head>
 
 <body>
+  <div id="banner-promo">
+    <span>ENVÍO GRATIS A TODO COLOMBIA A PARTIR DE COMPRAS SUPERIORES A 150.000 COP &nbsp;•&nbsp; ENVÍO GRATIS A TODO COLOMBIA A PARTIR DE COMPRAS SUPERIORES A 150.000 COP &nbsp;•&nbsp; ENVÍO GRATIS A TODO COLOMBIA A PARTIR DE COMPRAS SUPERIORES A 150.000 COP</span>
+  </div>
+
 
 <header>
   <h1 class="logo">
@@ -15,67 +55,228 @@
       <span class="blanco">Elalbe</span><span class="negro">col</span>
     </span>
   </h1>
-
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="#productos">Productos</a>
     <a href="#nosotros">Nosotros</a>
+    <a href="#envios">Envios</a>
     <a href="#contacto">Contacto</a>
   </nav>
 </header>
 
-<!-- HERO -->
+
 <section id="inicio" class="hero">
-  <h2></h2>
-  <a href="#productos" class="btn-comprar-ahora">Comprar ahora</a>
+  <a href="#productos" class="btn-comprar-ahora">ver coleccion</a>
 </section>
 
-<!-- PRODUCTOS -->
+
 <section id="productos" class="productos">
   <h2>Productos</h2>
 
   <div class="categorias">
-    <button onclick="mostrarTodos()">Todos</button>
-    <button onclick="filtrar('hombre')">Hombre</button>
-    <button onclick="filtrar('mujer')">Mujer</button>
-    <button onclick="filtrar('gorras')">Gorras</button>
-    <button onclick="filtrar('hoddies')">Hoddies</button>
+    <button class="activo" onclick="filtrar('todos', this)">Todos</button>
+    <button onclick="filtrar('hombre', this)">Hombre</button>
+    <button onclick="filtrar('mujer', this)">Mujer</button>
+    <button onclick="filtrar('gorras', this)">Gorras</button>
+    <button onclick="filtrar('hoodies', this)">hoodies</button>
   </div>
 
+  <div id="estado-carga" class="estado-carga">Cargando productos...</div>
   <div class="productos-grid" id="lista-productos"></div>
 </section>
 
-<!-- NOSOTROS -->
+
 <section id="nosotros" class="nosotros">
   <h2>Quienes somos</h2>
-
   <p class="texto-nosotros">
-   De lo urbano al tropical, <strong>Elalbecol</strong> combina ritmos, colores y libertad. Cada prenda cuenta una historia,
-   la tuya.<br>
-
-  Nacimos en las calles de Barranquilla, donde el calor se siente en la música, 
-  en los colores de la ciudad y en la energía de su gente. 
-  Nuestro estilo es versátil: tan urbano como atrevido, tan tropical como auténtico.<br>
-  Aquí no hay reglas, solo expresión. Cada prenda, cada detalle, es una pieza de nuestra identidad.
+    De lo urbano al tropical, <strong>Elalbecol</strong> combina ritmos, colores y libertad. Cada prenda cuenta una historia, la tuya.<br><br>
+    Nacimos en las calles de Barranquilla, donde el calor se siente en la música,
+    en los colores de la ciudad y en la energía de su gente.
+    Nuestro estilo es versátil: tan urbano como atrevido, tan tropical como auténtico.<br>
+    Aquí no hay reglas, solo expresión. Cada prenda, cada detalle, es una pieza de nuestra identidad.
   </p>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto" class="contacto">
-  <h2>Contacto</h2>
-  <p>Habla con nosotros directamente</p>
 
-  <a href="https://wa.me/573204883897" class="btn-comprar-ahora">WhatsApp</a>
 
-  <p class="texto-contacto">siguenos a traves de</p>
+<section id="envios" class="envios">
+  <h2>Envios</h2>
+  <p class="subtitulo-seccion">Llegamos a donde estés</p>
 
-  <a href="https://www.instagram.com/elalbe_col" class="btn-comprar-ahora">Instagram</a>
+  <div class="envios-grid">
+
+    <div class="envio-card">
+      <h3>Barranquilla</h3>
+      <p>Entrega en <strong>1 a 2 dias habiles</strong> directamente con domiciliario propio. Coordinamos contigo por WhatsApp.</p>
+    </div>
+
+    <div class="envio-card">
+      <h3>Todo Colombia</h3>
+      <p>Enviamos por Servientrega o Interrapidisimo. <strong>2 a 4 dias habiles</strong> segun tu ciudad.</p>
+    </div>
+
+    <div class="envio-card">
+      <h3>¿Como pedir?</h3>
+      <p>Agrega tus productos, llena tus datos y te llega el resumen por WhatsApp. Simple y rapido.</p>
+    </div>
+
+  </div>
+
+  <p class="envios-nota">¿Tienes dudas sobre tu pedido? <a href="https://wa.me/573204883897" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></p>
 </section>
 
+
+<section id="contacto" class="contacto">
+  <h2>Contacto</h2>
+  <p>Hablanos directamente</p>
+  <div class="social-row">
+
+    <a href="https://wa.me/573204883897" class="social-btn btn-whatsapp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.523 5.84L.057 23.882l6.2-1.627A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.001-1.373l-.358-.213-3.712.974.992-3.62-.234-.372A9.793 9.793 0 012.182 12C2.182 6.567 6.567 2.182 12 2.182S21.818 6.567 21.818 12 17.433 21.818 12 21.818z"/>
+      </svg>
+      WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/elalbe_col" class="social-btn btn-instagram" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+      </svg>
+      Instagram
+    </a>
+
+    <a href="https://www.facebook.com/share/1FgrfR1b9x/" class="social-btn btn-facebook" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+        <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+      </svg>
+      Facebook
+    </a>
+
+    <a href="https://www.tiktok.com/@ea_col" class="social-btn btn-tiktok" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
+      </svg>
+      TikTok
+    </a>
+
+  </div>
+</section>
+
+
 <footer class="footer">
-  <p>© 2026 ELALBECOL — Todos los derechos reservados</p>
+  <p>© 2026 ELALBECOL — Todos los derechos reservados, diseñado por Dilan Tocora</p>
+  <p style="margin-top:10px;font-size:13px;">
+    <a href="https://www.instagram.com/elalbe_col" target="_blank" rel="noopener" style="color:#fff;opacity:0.6;margin-right:20px;text-decoration:none;">Instagram</a>
+    <a href="https://www.tiktok.com/@ea_col" target="_blank" rel="noopener" style="color:#fff;opacity:0.6;text-decoration:none;">TikTok</a>
+  </p>
+  <p style="margin-top:10px;font-size:12px;">
+    <a href="privacidad.html" style="color:#fff;opacity:0.35;text-decoration:none;" target="_blank">Política de privacidad</a>
+  </p>
 </footer>
 
-<script src="script.js"></script>
+
+<div id="modal-tallas" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <button class="modal-cerrar" id="btn-cerrar-modal">✕</button>
+    <h3 id="modal-nombre-producto"></h3>
+    <p id="modal-precio-producto"></p>
+    <p class="modal-label">Selecciona tu talla:</p>
+    <div class="tallas-grid" id="modal-tallas-opciones"></div>
+
+   
+    <div id="modal-form-rapido" style="display:none;">
+      <input type="text" id="modal-campo-nombre" placeholder="Nombre completo" class="modal-input">
+      <input type="tel" id="modal-campo-celular" placeholder="Celular" class="modal-input">
+      <input type="text" id="modal-campo-direccion" placeholder="Dirección de entrega" class="modal-input">
+    </div>
+
+    <button class="btn-comprar-ahora btn-modal-whatsapp" id="btn-modal-comprar">Confirmar y agregar</button>
+  </div>
+</div>
+
+<button id="carrito-btn" class="carrito-flotante" aria-label="Ver carrito">
+  <img src="imagenes/carrito-de-compras.png" alt="Carrito" style="width:28px;height:28px;object-fit:contain;">
+  <span id="carrito-badge" class="carrito-badge" style="display:none;">0</span>
+</button>
+
+
+<div id="carrito-overlay" class="carrito-overlay" style="display:none;"></div>
+
+<div id="carrito-panel" class="carrito-panel">
+  <div class="carrito-header">
+    <h3>Tu pedido</h3>
+    <button class="carrito-cerrar" onclick="cerrarCarrito()">✕</button>
+  </div>
+  <div id="carrito-items" class="carrito-items">
+    <p class="carrito-vacio">Tu carrito está vacío</p>
+  </div>
+  <div id="carrito-formulario" class="carrito-formulario" style="display:none;">
+
+  <input type="text" id="campo-nombre" placeholder="Nombre completo">
+
+  <input type="tel" id="campo-celular" placeholder="Celular">
+
+  <input type="text" id="campo-direccion" placeholder="Dirección">
+
+  <textarea id="campo-comentarios" placeholder="Comentarios (opcional)"></textarea>
+
+  <button id="btn-confirmar-pedido" class="btn-comprar-ahora">
+    Confirmar pedido
+  </button>
+
+  <button id="btn-volver-carrito" class="btn-vaciar">
+    Volver
+  </button>
+
+</div>
+  <div class="carrito-footer">
+    <p id="carrito-total" class="carrito-total"></p>
+    <button id="carrito-enviar" class="btn-comprar-ahora btn-whatsapp-pedido" style="display:none;">
+      Enviar pedido por WhatsApp
+    </button>
+    <button id="carrito-vaciar" class="btn-vaciar" style="display:none;">
+      Vaciar carrito
+    </button>
+  </div>
+</div>
+
+
+<div id="ficha-overlay" class="ficha-overlay" style="display:none;"></div>
+
+
+<div id="ficha-panel" class="ficha-panel">
+  <button id="btn-cerrar-ficha" class="ficha-cerrar" aria-label="Cerrar">✕</button>
+
+ 
+  <div class="ficha-imagen-wrap">
+    <button id="ficha-img-prev" class="ficha-arrow ficha-arrow-left" aria-label="Anterior">‹</button>
+    <img id="ficha-imagen-principal" class="ficha-imagen" src="" alt="">
+    <button id="ficha-img-next" class="ficha-arrow ficha-arrow-right" aria-label="Siguiente">›</button>
+  </div>
+  <div id="ficha-dots" class="ficha-dots"></div>
+
+  
+  <div class="ficha-info">
+    <span id="ficha-etiqueta" class="etiqueta coleccion" style="display:none;"></span>
+    <h2 id="ficha-nombre" class="ficha-nombre"></h2>
+    <p id="ficha-precio" class="ficha-precio"></p>
+
+    <div id="ficha-tallas-wrap" style="display:none;">
+      <p class="ficha-label">Tallas disponibles</p>
+      <div id="ficha-tallas" class="tallas-preview"></div>
+    </div>
+
+    <div id="ficha-desc-label" class="ficha-label" style="display:none;">Material y composición</div>
+    <p id="ficha-descripcion" class="ficha-descripcion" style="display:none;"></p>
+
+    <div class="ficha-botones">
+      <button id="ficha-btn-agregar" class="btn-comprar-ahora btn-agregar">Agregar al carrito</button>
+      <button id="ficha-btn-comprar" class="btn-comprar-ahora btn-comprar-ya">Comprar ahora</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js" defer></script>
 </body>
 </html>
