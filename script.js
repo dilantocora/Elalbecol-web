@@ -3,7 +3,22 @@
 // ===============================
 const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ_kbtt99t-xfyuu-IhRWdgWrC4bKRM-MMj7RNfFqHxtSqAnUQ9m1tJEMDJb64e-TNQK8hMQVGDfxxd/pub?gid=0&single=true&output=csv";
 const WHATSAPP_DEFAULT = "573204883897";
+// Hamburguesa
+const hamburguesa = document.getElementById('hamburguesa')
+const navMenu = document.getElementById('nav-menu')
 
+hamburguesa.addEventListener('click', () => {
+  hamburguesa.classList.toggle('activo')
+  navMenu.classList.toggle('abierto')
+})
+
+// Cierra el menú al hacer clic en un enlace
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburguesa.classList.remove('activo')
+    navMenu.classList.remove('abierto')
+  })
+})
 // ===============================
 // SANITIZACION — prevenir XSS
 // ===============================
@@ -577,6 +592,9 @@ function cambiarCantidad(key, delta) {
   if (!item) return;
   item.cantidad += delta;
   if (item.cantidad <= 0) { quitarDelCarrito(key); }
+
+
+
   else { guardarCarrito(); actualizarBadge(); renderCarrito(); }
 }
 
@@ -729,4 +747,5 @@ document.addEventListener("DOMContentLoaded", () => {
   inicializarCarrito();
   inicializarFichaPanel();
   cargarProductos();
+  
 });
