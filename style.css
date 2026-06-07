@@ -2,7 +2,7 @@
    RESET + BASE
 ===================================================== */
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
 
 /* =====================================================
    FUENTES
@@ -435,7 +435,7 @@ nav a:hover{color:#9f0000;}
 .ficha-cerrar{position:sticky;top:0;align-self:flex-end;margin:14px 14px 0 0;background:rgba(255,255,255,.07);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:16px;cursor:pointer;z-index:10;transition:background .2s;flex-shrink:0;}
 .ficha-cerrar:hover{background:rgba(255,255,255,.15);}
 .ficha-imagen-wrap{position:relative;width:100%;background:#1a1a1a;flex-shrink:0;}
-.ficha-imagen{width:100%;height:380px;object-fit:cover;display:block;transition:opacity .2s ease;}
+.ficha-imagen{width:100%;height:420px;object-fit:contain;object-position:center;display:block;transition:opacity .2s ease;background:#1a1a1a;}
 .ficha-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:5;}
 .ficha-arrow:hover{background:rgba(0,0,0,.8);}
 .ficha-arrow-left{left:12px;}
@@ -525,7 +525,164 @@ nav a:hover{color:#9f0000;}
   .carrito-flotante{bottom:20px;right:20px;}
   .carrito-formulario{padding:14px;}
   .carrito-formulario input,.carrito-formulario textarea{border-radius:10px;padding:12px;font-size:15px;}
-  .ficha-panel{width:100vw;}
-  .ficha-imagen{height:300px;}
+  .ficha-panel{width:100vw;max-width:100vw;left:0;right:0;overflow-x:hidden;}
+  .ficha-imagen{height:320px;}
   .ficha-nombre{font-size:20px;}
+  .ficha-info{padding:16px 16px 28px;}
+  .ficha-imagen-wrap{width:100%;max-width:100%;overflow:hidden;}
+  .ficha-botones .btn-comprar-ahora{width:100%;box-sizing:border-box;}
+}
+
+/* =====================================================
+   MUNDIAL 2026
+===================================================== */
+
+/* Banner mundial */
+#banner-mundial{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:linear-gradient(90deg,#003087 0%,#1a1a6e 40%,#9f0000 100%);
+  padding:0 16px 0 0;
+  position:relative;
+  overflow:hidden;
+  z-index:1001;
+  height:42px;
+}
+.banner-mundial-track{
+  flex:1;
+  overflow:hidden;
+  height:100%;
+  position:relative;
+}
+.banner-mundial-inner{
+  display:inline-block;
+  white-space:nowrap;
+  line-height:42px;
+  font-family:'Longhaul',sans-serif;
+  font-size:13px;
+  letter-spacing:2px;
+  color:#fff;
+  padding-left:100%;
+  animation:moverBanner 25s linear infinite;
+}
+.banner-mundial-cta{
+  font-family:'Longhaul',sans-serif;
+  font-size:11px;
+  letter-spacing:1px;
+  color:#fcd116;
+  text-decoration:none;
+  border:1px solid rgba(252,209,22,.4);
+  padding:4px 12px;
+  border-radius:20px;
+  white-space:nowrap;
+  transition:all .2s;
+  flex-shrink:0;
+}
+.banner-mundial-cta:hover{background:rgba(252,209,22,.15);border-color:#fcd116;}
+#banner-mundial-cerrar{
+  background:none;border:none;color:rgba(255,255,255,.4);
+  font-size:14px;cursor:pointer;padding:4px 6px;
+  line-height:1;flex-shrink:0;transition:color .2s;
+}
+#banner-mundial-cerrar:hover{color:#fff;}
+#banner-mundial.oculto{display:none;}
+
+/* Nav link Mundial */
+.nav-mundial{color:#fcd116 !important;}
+.nav-mundial:hover{color:#fff !important;}
+
+/* Botón categoría Mundial */
+.btn-mundial{
+  background:linear-gradient(135deg,#fcd116 0%,#003087 50%,#ce1126 100%) !important;
+  border:none !important;
+  color:#fff !important;
+  font-weight:800 !important;
+  text-shadow:0 1px 3px rgba(0,0,0,.5);
+}
+.btn-mundial:hover,.btn-mundial.activo{
+  transform:translateY(-4px) !important;
+  box-shadow:0 8px 28px rgba(252,209,22,.4) !important;
+}
+
+/* Sección hero Mundial */
+.mundial-section{
+  position:relative;
+  min-height:88vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:80px 24px;
+  text-align:center;
+}
+.mundial-bg-flags{
+  position:absolute;inset:0;display:flex;z-index:0;
+}
+.flag-col{flex:1;opacity:.13;}
+.flag-col-co{background:linear-gradient(180deg,#fcd116 0%,#003087 50%,#ce1126 100%);}
+.flag-col-ar{background:linear-gradient(180deg,#74acdf 0%,#fff 50%,#74acdf 100%);}
+.flag-col-br{background:linear-gradient(180deg,#009c3b 0%,#ffdf00 50%,#002776 100%);}
+.mundial-section::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(0,0,0,.05) 0%,rgba(0,0,0,.88) 65%);
+  z-index:1;
+}
+.mundial-content{position:relative;z-index:2;max-width:700px;margin:0 auto;}
+.mundial-eyebrow{
+  font-family:'Machton',sans-serif;font-size:13px;
+  letter-spacing:5px;text-transform:uppercase;
+  color:#fcd116;margin-bottom:16px;
+  animation:fadeUp .8s ease forwards;
+}
+.mundial-titulo{
+  font-family:'Longhaul',sans-serif;
+  font-size:clamp(64px,12vw,120px);
+  line-height:1;letter-spacing:4px;color:#fff;
+  margin-bottom:20px;
+  animation:fadeUp .8s ease .1s both;
+  text-shadow:0 0 60px rgba(252,209,22,.2);
+}
+.mundial-subtitulo{
+  font-family:'Machton',sans-serif;font-size:16px;
+  color:rgba(255,255,255,.7);line-height:1.8;
+  margin-bottom:48px;
+  animation:fadeUp .8s ease .2s both;
+}
+.mundial-paises{
+  display:flex;justify-content:center;
+  gap:20px;flex-wrap:wrap;margin-bottom:52px;
+  animation:fadeUp .8s ease .3s both;
+}
+.pais-card{
+  display:flex;flex-direction:column;align-items:center;
+  gap:10px;padding:24px 28px;border-radius:16px;
+  cursor:pointer;transition:all .3s ease;
+  border:2px solid transparent;min-width:110px;
+  background:rgba(255,255,255,.05);backdrop-filter:blur(6px);
+}
+.pais-card:hover{transform:translateY(-6px);}
+.pais-flag{font-size:44px;line-height:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.4));}
+.pais-nombre{font-family:'Longhaul',sans-serif;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#fff;}
+.pais-co{border-color:rgba(252,209,22,.3);}
+.pais-co:hover,.pais-co.activo{border-color:#fcd116;background:rgba(252,209,22,.1);box-shadow:0 0 30px rgba(252,209,22,.2);}
+.pais-ar{border-color:rgba(116,172,223,.3);}
+.pais-ar:hover,.pais-ar.activo{border-color:#74acdf;background:rgba(116,172,223,.1);box-shadow:0 0 30px rgba(116,172,223,.2);}
+.pais-br{border-color:rgba(0,156,59,.3);}
+.pais-br:hover,.pais-br.activo{border-color:#009c3b;background:rgba(0,156,59,.1);box-shadow:0 0 30px rgba(0,156,59,.2);}
+.mundial-cta{
+  animation:fadeUp .8s ease .4s both;
+  font-size:16px;padding:16px 44px;letter-spacing:2px;
+}
+
+/* Etiquetas por país */
+.etiqueta.colombia{background:#003087;color:#fcd116;border:1px solid #fcd116;}
+.etiqueta.argentina{background:#74acdf;color:#fff;}
+.etiqueta.brasil{background:#009c3b;color:#ffdf00;}
+
+@media(max-width:600px){
+  .mundial-paises{gap:12px;}
+  .pais-card{min-width:90px;padding:18px 16px;}
+  .pais-flag{font-size:34px;}
+  .banner-mundial-inner{font-size:10px;max-width:calc(100% - 110px);}
 }

@@ -48,7 +48,6 @@
     <span>ENVÍO GRATIS A TODO COLOMBIA A PARTIR DE COMPRAS SUPERIORES A 150.000 COP &nbsp;•&nbsp; ENVÍO GRATIS A TODO COLOMBIA A PARTIR DE COMPRAS SUPERIORES A 150.000 COP &nbsp;•&nbsp; ENVÍO GRATIS A TODO COLOMBIA A PARTIR DE COMPRAS SUPERIORES A 150.000 COP</span>
   </div>
 
-
 <header>
   <div class="header-inner">
     <h1 class="logo">
@@ -64,6 +63,7 @@
   </div>
   <nav id="nav-menu">
     <a href="#inicio" class="nav-link">Inicio</a>
+    <a href="#mundial" class="nav-link nav-mundial">Mundial</a>
     <a href="#productos" class="nav-link">Productos</a>
     <a href="#nosotros" class="nav-link">Nosotros</a>
     <a href="#envios" class="nav-link">Envios</a>
@@ -75,17 +75,48 @@
 <section id="inicio" class="hero">
   <a href="#productos" class="btn-comprar-ahora">ver coleccion</a>
 </section>
+<!-- Banner colección Mundial -->
+  <div id="banner-mundial">
+    <span class="banner-mundial-inner">🇨🇴 &nbsp;NUEVA COLECCIÓN MUNDIAL 2026 — CAMISAS PERSONALIZADAS&nbsp; 🇦🇷 &nbsp;•&nbsp; ELIGE TU SELECCIÓN &nbsp;•&nbsp; 🇧🇷 &nbsp;NUEVA COLECCIÓN MUNDIAL 2026 — CAMISAS PERSONALIZADAS&nbsp; 🇨🇴 &nbsp;•&nbsp; ELIGE TU SELECCIÓN &nbsp;•&nbsp; 🇦🇷 &nbsp;NUEVA COLECCIÓN MUNDIAL 2026&nbsp; 🇧🇷</span>
+  </div>
 
+<!-- ===== SECCIÓN MUNDIAL 2026 ===== -->
+<section id="mundial" class="mundial-section">
+  <div class="mundial-bg-flags">
+    <div class="flag-col flag-col-co"></div>
+    <div class="flag-col flag-col-ar"></div>
+    <div class="flag-col flag-col-br"></div>
+  </div>
+  <div class="mundial-content">
+    <p class="mundial-eyebrow">Colección Especial</p>
+    <h2 class="mundial-titulo">MUNDIAL<br>2026</h2>
+    <p class="mundial-subtitulo">Camisas personalizadas de tu selección.<br>Diseño único, identidad propia.</p>
+    <div class="mundial-paises">
+      <div class="pais-card pais-co" onclick="filtrarPais('colombia', this)">
+        <span class="pais-flag">🇨🇴</span>
+        
+      </div>
+      <div class="pais-card pais-br" onclick="filtrarPais('brasil', this)">
+        <span class="pais-flag">🇧🇷</span>
+      </div>
+      <div class="pais-card pais-ar" onclick="filtrarPais('argentina', this)">
+        <span class="pais-flag">🇦🇷</span>
+        
+      </div>
+      
+</section>
 
 <section id="productos" class="productos">
   <h2>Productos</h2>
 
   <div class="categorias">
     <button class="activo" onclick="filtrar('todos', this)">Todos</button>
+    <button class="btn-mundial" onclick="filtrarMundial(this)">Mundial 2026</button>
     <button onclick="filtrar('hombre', this)">Hombre</button>
     <button onclick="filtrar('mujer', this)">Mujer</button>
     <button onclick="filtrar('gorras', this)">Gorras</button>
     <button onclick="filtrar('hoodies', this)">hoodies</button>
+    
   </div>
 
   <div id="estado-carga" class="estado-carga">Cargando productos...</div>

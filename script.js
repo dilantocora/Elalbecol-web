@@ -446,7 +446,7 @@ function mostrarProductos(lista) {
   }
 
   // Orden de secciones preferido
-  const ORDEN = ["hombre", "mujer", "gorras", "hoodies"];
+  const ORDEN = ["mundial", "hombre", "mujer", "gorras", "hoodies"];
 
   // Agrupar por categoría
   const grupos = new Map();
@@ -747,5 +747,44 @@ document.addEventListener("DOMContentLoaded", () => {
   inicializarCarrito();
   inicializarFichaPanel();
   cargarProductos();
-  
+
+  // ---- BANNER MUNDIAL ----
+  const bannerMundial   = document.getElementById("banner-mundial");
+  const btnCerrarBanner = document.getElementById("banner-mundial-cerrar");
+  if (btnCerrarBanner && bannerMundial) {
+    btnCerrarBanner.addEventListener("click", () => bannerMundial.classList.add("oculto"));
+  }
 });
+
+// ===============================
+// MUNDIAL — FILTROS
+// ===============================
+function filtrarMundial(btnElement) {
+  categoriaActual = "mundial";
+  document.querySelectorAll(".categorias button").forEach(b => b.classList.remove("activo"));
+  if (btnElement) btnElement.classList.add("activo");
+  const filtrados = productosData.filter(p =>
+    p.categoria === "mundial" ||
+    (p.etiqueta && ["colombia","argentina","brasil"].includes(p.etiqueta.toLowerCase()))
+  );
+  mostrarProductos(filtrados);
+}
+
+function filtrarPais(pais, cardElement) {
+  document.querySelectorAll(".pais-card").forEach(c => c.classList.remove("activo"));
+  if (cardElement) cardElement.classList.add("activo");
+  categoriaActual = "mundial";
+  document.querySelectorAll(".categorias button").forEach(b => b.classList.remove("activo"));
+  const btnMundial = document.querySelector(".btn-mundial");
+  if (btnMundial) btnMundial.classList.add("activo");
+  const secProd = document.getElementById("productos");
+  if (secProd) secProd.scrollIntoView({ behavior: "smooth", block: "start" });
+  const filtrados = productosData.filter(p =>
+    p.etiqueta && p.etiqueta.toLowerCase() === pais.toLowerCase()
+  );
+  mostrarProductos(filtrados);
+}
+
+function filtrarMundialCTA() {
+  filtrarMundial(document.querySelector(".btn-mundial"));
+}
