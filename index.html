@@ -14,14 +14,14 @@
   <meta name="description" content="Ropa urbana y tropical hecha para Barranquilla. Camisas, gorras y hoodies con identidad propia. Envíos a todo Colombia.">
   <meta name="keywords" content="ropa urbana barranquilla, camisas colombia, moda tropical, elalbecol, gorras, hoodies">
   <meta name="author" content="Elalbecol">
-  <link rel="canonical" href="https://elalbecol.netlify.app/">
+  <link rel="canonical" href="https://eacol.netlify.app/">
 
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://elalbecol.netlify.app/">
+  <meta property="og:url" content="https://eacol.netlify.app/">
   <meta property="og:title" content="Elalbecol | Moda Urbana y Tropical">
   <meta property="og:description" content="De lo urbano al tropical. Ropa con identidad, nacida en Barranquilla.">
-  <meta property="og:image" content="https://elalbecol.netlify.app/imagenes/fondoalbe.png">
+  <meta property="og:image" content="https://eacol.netlify.app/imagenes/fondoalbe.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="es_CO">
@@ -29,7 +29,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Elalbecol | Moda Urbana y Tropical">
   <meta name="twitter:description" content="De lo urbano al tropical. Ropa con identidad, nacida en Barranquilla.">
-  <meta name="twitter:image" content="https://elalbecol.netlify.app/imagenes/fondoalbe.png">
+  <meta name="twitter:image" content="https://eacol.netlify.app/imagenes/fondoalbe.png">
 
   <link rel="stylesheet" href="style.css">
 
@@ -119,7 +119,12 @@
     
   </div>
 
-  <div id="estado-carga" class="estado-carga">Cargando productos...</div>
+  <div id="estado-carga" class="skeleton-grid">
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line skeleton-line-title"></div><div class="skeleton-line skeleton-line-price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line skeleton-line-title"></div><div class="skeleton-line skeleton-line-price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line skeleton-line-title"></div><div class="skeleton-line skeleton-line-price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line skeleton-line-title"></div><div class="skeleton-line skeleton-line-price"></div></div>
+  </div>
   <div class="productos-grid" id="lista-productos"></div>
 </section>
 
@@ -199,6 +204,14 @@
 
 
 <footer class="footer">
+  <div class="metodos-pago">
+    <p class="metodos-pago-label">Métodos de pago</p>
+    <div class="metodos-pago-row">
+      <span class="metodo-chip">Nequi</span>
+      <span class="metodo-chip">Bancolombia</span>
+      <span class="metodo-chip">Pago contraentrega</span>
+    </div>
+  </div>
   <p>© 2026 ELALBECOL — Todos los derechos reservados, diseñado por DMstudio</p>
   <p style="margin-top:10px;font-size:12px;">
     <a href="privacidad.html" style="color:#fff;opacity:0.35;text-decoration:none;" target="_blank">Política de privacidad</a>
