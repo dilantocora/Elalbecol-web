@@ -737,6 +737,11 @@ function irAProductoDesdeURL() {
     el.scrollIntoView({ behavior: "smooth", block: "center" });
     el.classList.add("producto-highlight");
     setTimeout(() => el.classList.remove("producto-highlight"), 2500);
+
+    // Abrir ficha automáticamente si viene desde WhatsApp
+    const productoId = hash.replace("producto-", "");
+    const producto = productosData.find(p => p.id === productoId);
+    if (producto) abrirFicha(producto);
   }
 }
 
@@ -768,7 +773,7 @@ function filtrarMundial(btnElement) {
     (p.etiqueta && ["colombia","argentina","brasil"].includes(p.etiqueta.toLowerCase()))
   );
   mostrarProductos(filtrados);
-}
+}url
 
 function filtrarPais(pais, cardElement) {
   document.querySelectorAll(".pais-card").forEach(c => c.classList.remove("activo"));

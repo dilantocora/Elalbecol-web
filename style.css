@@ -125,6 +125,11 @@ nav a:hover{color:#9f0000;}
 #inicio.hero{
   position:relative;
   padding:100px 20px;
+  min-height:60vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   overflow:hidden;
   background:#111;
 }
@@ -133,10 +138,16 @@ nav a:hover{color:#9f0000;}
   position:absolute;
   inset:0;
   background-image:url('imagenes/fondoalbe.png');
-  background-size:contain;
+  background-size:cover;
   background-repeat:no-repeat;
   background-position:center;
-  opacity:1;
+  z-index:0;
+}
+#inicio.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,.75) 100%);
   z-index:0;
 }
 #inicio.hero > *{position:relative;z-index:1;}
@@ -152,7 +163,7 @@ nav a:hover{color:#9f0000;}
 
 #inicio.hero h2{animation:fadeUp 1s ease forwards;}
 #inicio .btn-comprar-ahora{
-  margin-top:clamp(180px,35vh,380px);
+  margin-top:12px;
   opacity:0;
   animation:fadeUp 1s ease forwards .6s,subtleFloat 3s ease-in-out infinite 2s;
 }
@@ -163,7 +174,7 @@ nav a:hover{color:#9f0000;}
 .hero h2{
   font-size:52px;
   line-height:1.15;
-  margin-bottom:12px;
+  margin-bottom:150px;
   text-align:center;
   text-transform:uppercase;
   letter-spacing:2px;
@@ -172,7 +183,7 @@ nav a:hover{color:#9f0000;}
   font-family:'Machton',sans-serif;
   font-size:17px;
   color:rgba(255,255,255,0.65);
-  margin-bottom:32px;
+  margin-bottom:150px;
   text-align:center;
   letter-spacing:1px;
 }
@@ -307,7 +318,8 @@ nav a:hover{color:#9f0000;}
 ===================================================== */
 .nosotros,.contacto{padding:110px 24px;text-align:center;background:#0f0f0f;}
 .nosotros{border-top:1px solid rgba(255,255,255,0.06);}
-.contacto{border-top:1px solid rgba(255,255,255,0.06);}font-size:32px;letter-spacing:3px;color:#fff;margin:0 0 8px;}
+.contacto{border-top:1px solid rgba(255,255,255,0.06);}
+.nosotros h2,.contacto h2{font-size:32px;letter-spacing:3px;color:#fff;margin:0 0 8px;}
 .contacto p{font-size:13px;color:rgba(255,255,255,0.35);letter-spacing:2px;text-transform:uppercase;margin:0 0 40px;}
 .social-row{
   display:flex;
@@ -695,5 +707,5 @@ nav a:hover{color:#9f0000;}
   .mundial-paises{gap:12px;}
   .pais-card{min-width:90px;padding:18px 16px;}
   .pais-flag{font-size:34px;}
-  .banner-mundial-inner{font-size:10px;max-width:calc(100% - 110px);}
+  .banner-mundial-inner{font-size:10px;}
 }
