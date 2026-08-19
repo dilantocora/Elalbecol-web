@@ -14,14 +14,14 @@
   <meta name="description" content="Ropa urbana y tropical hecha para Barranquilla. Camisas, gorras y hoodies con identidad propia. Envíos a todo Colombia.">
   <meta name="keywords" content="ropa urbana barranquilla, camisas colombia, moda tropical, elalbecol, gorras, hoodies">
   <meta name="author" content="Elalbecol">
-  <link rel="canonical" href="https://eacol.netlify.app/">
+  <link rel="canonical" href="https://elalbecol.netlify.app/">
 
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://eacol.netlify.app/">
+  <meta property="og:url" content="https://elalbecol.netlify.app/">
   <meta property="og:title" content="Elalbecol | Moda Urbana y Tropical">
   <meta property="og:description" content="De lo urbano al tropical. Ropa con identidad, nacida en Barranquilla.">
-  <meta property="og:image" content="https://eacol.netlify.app/imagenes/fondoalbe.png">
+  <meta property="og:image" content="https://elalbecol.netlify.app/imagenes/fondoalbe.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="es_CO">
@@ -29,7 +29,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Elalbecol | Moda Urbana y Tropical">
   <meta name="twitter:description" content="De lo urbano al tropical. Ropa con identidad, nacida en Barranquilla.">
-  <meta name="twitter:image" content="https://eacol.netlify.app/imagenes/fondoalbe.png">
+  <meta name="twitter:image" content="https://elalbecol.netlify.app/imagenes/fondoalbe.png">
 
   <link rel="stylesheet" href="style.css">
 
@@ -41,7 +41,9 @@
     gtag('js', new Date());
     gtag('config', 'G-L9CGC9F19G');
   </script>
+
 </head>
+
 
 <body>
   <div id="banner-promo">
@@ -63,7 +65,6 @@
   </div>
   <nav id="nav-menu">
     <a href="#inicio" class="nav-link">Inicio</a>
-    <a href="#mundial" class="nav-link nav-mundial">Mundial</a>
     <a href="#productos" class="nav-link">Productos</a>
     <a href="#nosotros" class="nav-link">Nosotros</a>
     <a href="#envios" class="nav-link">Envios</a>
@@ -73,41 +74,23 @@
 
 
 <section id="inicio" class="hero">
-  <h2></h2>
-  <p class="hero-sub"></p>
   <a href="#productos" class="btn-comprar-ahora">ver coleccion</a>
 </section>
-<!-- Banner colección Mundial -->
-  <div id="banner-mundial">
-    <div class="banner-mundial-track">
-      <span class="banner-mundial-inner">🇨🇴 &nbsp;NUEVA COLECCIÓN MUNDIAL 2026 — CAMISAS PERSONALIZADAS&nbsp; 🇦🇷 &nbsp;•&nbsp; ELIGE TU SELECCIÓN &nbsp;•&nbsp; 🇧🇷 &nbsp;NUEVA COLECCIÓN MUNDIAL 2026 — CAMISAS PERSONALIZADAS&nbsp; 🇨🇴 &nbsp;•&nbsp; ELIGE TU SELECCIÓN &nbsp;•&nbsp; 🇦🇷 &nbsp;NUEVA COLECCIÓN MUNDIAL 2026&nbsp; 🇧🇷</span>
-    </div>
-  </div>
 
-<!-- ===== SECCIÓN MUNDIAL 2026 ===== -->
-<section id="mundial" class="mundial-section">
-  <div class="mundial-bg-flags">
-    <div class="flag-col flag-col-co"></div>
-    <div class="flag-col flag-col-ar"></div>
-    <div class="flag-col flag-col-br"></div>
+<!-- ===== BANNER PROMOCIONAL - NUEVAS GORRAS ===== -->
+<section class="promo-banner">
+  <div class="promo-banner__overlay"></div>
+  <div class="promo-banner__content">
+    <span class="promo-banner__tag">
+      <span class="promo-banner__dot"></span>
+      NUEVO DROP
+    </span>
+    <h2 class="promo-banner__title">
+      NUEVAS<br>GORRAS
+    </h2>
+    <p class="promo-banner__subtitle">Diseños exclusivos. Edición limitada.</p>
+    <a href="#productos" class="promo-banner__cta">VER COLECCIÓN</a>
   </div>
-  <div class="mundial-content">
-    <p class="mundial-eyebrow">Colección Especial</p>
-    <h2 class="mundial-titulo">MUNDIAL<br>2026</h2>
-    <p class="mundial-subtitulo">Camisas personalizadas de tu selección.<br>Diseño único, identidad propia.</p>
-    <div class="mundial-paises">
-      <div class="pais-card pais-co" onclick="filtrarPais('colombia', this)">
-        <span class="pais-flag">🇨🇴</span>
-        
-      </div>
-      <div class="pais-card pais-br" onclick="filtrarPais('brasil', this)">
-        <span class="pais-flag">🇧🇷</span>
-      </div>
-      <div class="pais-card pais-ar" onclick="filtrarPais('argentina', this)">
-        <span class="pais-flag">🇦🇷</span>
-        
-      </div>
-      
 </section>
 
 <section id="productos" class="productos">
@@ -115,7 +98,6 @@
 
   <div class="categorias">
     <button class="activo" onclick="filtrar('todos', this)">Todos</button>
-    <button class="btn-mundial" onclick="filtrarMundial(this)">Mundial 2026</button>
     <button onclick="filtrar('hombre', this)">Hombre</button>
     <button onclick="filtrar('mujer', this)">Mujer</button>
     <button onclick="filtrar('gorras', this)">Gorras</button>
@@ -123,12 +105,7 @@
     
   </div>
 
-  <div id="estado-carga" class="skeleton-grid">
-    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line skeleton-line-title"></div><div class="skeleton-line skeleton-line-price"></div></div>
-    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line skeleton-line-title"></div><div class="skeleton-line skeleton-line-price"></div></div>
-    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line skeleton-line-title"></div><div class="skeleton-line skeleton-line-price"></div></div>
-    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-line skeleton-line-title"></div><div class="skeleton-line skeleton-line-price"></div></div>
-  </div>
+  <div id="estado-carga" class="estado-carga">Cargando productos...</div>
   <div class="productos-grid" id="lista-productos"></div>
 </section>
 
@@ -136,9 +113,10 @@
 <section id="nosotros" class="nosotros">
   <h2>Quienes somos</h2>
   <p class="texto-nosotros">
-    Somos una marca nacida en Barranquilla, inspirada en la energía de sus calles, la creatividad de su gente y la esencia única de la cultura caribeña. Creemos que la ropa es más que una prenda: es una forma de expresar quién eres, de dónde vienes y lo que representas.
-    Cada colección combina elementos del estilo urbano con nuestra identidad local, creando piezas auténticas para quienes buscan destacar sin perder sus raíces. Diseñamos para personas que viven con actitud, confianza y orgullo por su historia.
-    Desde Barranquilla, construimos una marca que celebra la cultura, la autenticidad y la libertad de ser uno mismo.<br>
+    De lo urbano al tropical, <strong>Elalbecol</strong> combina ritmos, colores y libertad. Cada prenda cuenta una historia, la tuya.<br><br>
+    Nacimos en las calles de Barranquilla, donde el calor se siente en la música,
+    en los colores de la ciudad y en la energía de su gente.
+    Nuestro estilo es versátil: tan urbano como atrevido, tan tropical como auténtico.<br>
     Aquí no hay reglas, solo expresión. Cada prenda, cada detalle, es una pieza de nuestra identidad.
   </p>
 </section>
@@ -207,15 +185,6 @@
 
 
 <footer class="footer">
-  <div class="metodos-pago">
-    <p class="metodos-pago-label">Métodos de pago</p>
-    <div class="metodos-pago-row">
-      <span class="metodo-chip">Nequi</span>
-      <span class="metodo-chip">Bancolombia</span>
-      <span class="metodo-chip">PSE</span>
-      <span class="metodo-chip">Pago contraentrega</span>
-    </div>
-  </div>
   <p>© 2026 ELALBECOL — Todos los derechos reservados, diseñado por DMstudio</p>
   <p style="margin-top:10px;font-size:12px;">
     <a href="privacidad.html" style="color:#fff;opacity:0.35;text-decoration:none;" target="_blank">Política de privacidad</a>
