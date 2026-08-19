@@ -736,7 +736,19 @@ function filtrar(categoria, btnElement) {
 
 function irAProductoDesdeURL() {
   const hash = window.location.hash.replace("#", "");
-  if (!hash) return;
+  if (!hash || !hash.startsWith("producto-")) return;
+
+  const id       = hash.replace("producto-", "");
+  const producto = productosData.find(p => p.id === id);
+
+  if (producto) {
+    // Abre la misma ficha de detalle que se abre al hacer clic en la gorra
+    abrirFicha(producto);
+    return;
+  }
+
+  // Fallback: si no se encuentra el producto en los datos cargados,
+  // al menos hace scroll y resalta la tarjeta (comportamiento anterior)
   const el = document.getElementById(hash);
   if (el) {
     el.scrollIntoView({ behavior: "smooth", block: "center" });
